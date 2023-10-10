@@ -1,7 +1,11 @@
 import { HiOutlineChevronDown } from 'react-icons/hi2';
 import { CiDiscount1 } from 'react-icons/ci';
 import { BiCategory } from 'react-icons/bi';
+import { useNavigate } from "react-router-dom";
+
 const BottomHeader = () => {
+  const Navigate = useNavigate();
+  
   return (
     <div>
       
@@ -19,7 +23,7 @@ const BottomHeader = () => {
             <ul className='flex justify-center items-center gap-1 cursor-pointer'>Shop  <HiOutlineChevronDown size={12} /></ul>
             <ul className='flex justify-center items-center gap-2 cursor-pointer'>About</ul>
             <ul className='flex justify-center items-center gap-2 cursor-pointer'>Blog</ul>
-            <ul className='flex justify-center items-center gap-2 cursor-pointer'>Contact</ul>
+            <ul className='flex justify-center items-center gap-2 cursor-pointer' onClick={() => Navigate("/contact")}>Contact</ul>
           </li>
         </main>
         <main className='flex items-center justify-center gap-3 leading-4'>
