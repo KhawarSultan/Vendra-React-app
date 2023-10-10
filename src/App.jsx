@@ -7,6 +7,8 @@ import AuthPage from './pages/Authentication/AuthPage';
 import AdminPage from './pages/Admin/AdminPage';
 import ContactPage from './pages/Contact/ContactPage';
 function App() {
+  const isLoggedIn = window.localStorage.getItem("loggedIn");
+
   return (
     <>
       <BrowserRouter>
@@ -14,7 +16,7 @@ function App() {
         <Routes>
           <Route exact path='/' element={<HomePage />} />
           <Route exact path='/account' element={<AuthPage />} />
-          <Route exact path='/admin-account' element={<AdminPage />} />
+          <Route exact path='/admin-account' element={isLoggedIn == "true" ? <AdminPage /> : < AuthPage/>} />
           <Route exact path='/contact' element={<ContactPage />} />
         </Routes>
         <Footer />

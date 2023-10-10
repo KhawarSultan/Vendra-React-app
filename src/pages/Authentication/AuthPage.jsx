@@ -66,7 +66,7 @@ const AuthPage = () => {
           )        
         // Use localStorage.setItem() to store the token
         localStorage.setItem("token", data.data);
-        
+        localStorage.setItem("loggedIn", true);
         // Add a console.log statement for debugging
         console.log("Redirecting to admin-account page...");
 
@@ -79,8 +79,12 @@ const AuthPage = () => {
             'success'
           ) 
     } else {
-        alert("Login or Registration Failed");
-
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong! Try Different Passowrd',
+          footer: '<a href="">Why do I have this issue?</a>'
+        })
         // Handle cases where login or registration fails
     }
 })
@@ -130,6 +134,7 @@ const AuthPage = () => {
                                 value={formData.username}
                                 onChange={handleChange}
                                 placeholder="Username"
+                                required
                             />
                         </div>
                         <div className="mb-5">
@@ -144,6 +149,7 @@ const AuthPage = () => {
                                 value={formData.email}
                                 onChange={handleChange}
                                 placeholder="Email Address"
+                                required
                             />
                         </div>
                         <div className="mb-7">
@@ -157,6 +163,7 @@ const AuthPage = () => {
                                 name="password"
                                 value={formData.password}
                                 onChange={handleChange}
+                                required
                             />
                         </div>
                     </>
@@ -176,6 +183,7 @@ const AuthPage = () => {
                                 value={formData.username}
                                 onChange={handleChange}
                                 placeholder="Username or Email Address"
+                                required
                             />
                         </div>
                         <div className="mb-7">
